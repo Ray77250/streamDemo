@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import Step from './components/Step';
-import Think from './components/Think';
-import Text from './components/Text';
 import sseService from './services/sseService';
+import componentManager from './services/componentManager';
 import './App.css';
 
 function App() {
@@ -37,101 +35,7 @@ function App() {
   // 处理新消息
   const handleNewMessage = useCallback((data) => {
     setMessageCount(prev => prev + 1);
-    
-    if (data.type === 'step') {
-      setComponents(prev => {
-        const newComponents = [...prev];
-        
-        // 找到最后一个（最新的）未完成的step组件
-        let activeStepIndex = -1;
-        for (let i = newComponents.length - 1; i >= 0; i--) {
-          if (newComponents[i].type === 'step' && !newComponents[i].isFinished) {
-            activeStepIndex = i;
-            break;
-          }
-        }
-        
-        if (activeStepIndex >= 0) {
-          // 更新当前活跃的step组件
-          newComponents[activeStepIndex] = {
-            ...newComponents[activeStepIndex],
-            data: data,
-            isFinished: data.content?.is_finished || false
-          };
-        } else {
-          // 没有活跃的step组件，创建新的
-          newComponents.push({
-            id: `${data.msg_id}_${Date.now()}`, // 生成唯一ID
-            type: 'step',
-            data: data,
-            isFinished: data.content?.is_finished || false
-          });
-        }
-        return newComponents;
-      });
-    } else if (data.type === 'think') {
-      setComponents(prev => {
-        const newComponents = [...prev];
-        
-        // 找到最后一个（最新的）未完成的think组件
-        let activeThinkIndex = -1;
-        for (let i = newComponents.length - 1; i >= 0; i--) {
-          if (newComponents[i].type === 'think' && !newComponents[i].isFinished) {
-            activeThinkIndex = i;
-            break;
-          }
-        }
-        
-        if (activeThinkIndex >= 0) {
-          // 更新当前活跃的think组件
-          newComponents[activeThinkIndex] = {
-            ...newComponents[activeThinkIndex],
-            data: data,
-            isFinished: data.content?.is_finished || false
-          };
-        } else {
-          // 没有活跃的think组件，创建新的
-          newComponents.push({
-            id: `${data.msg_id}_${Date.now()}`, // 生成唯一ID
-            type: 'think',
-            data: data,
-            isFinished: data.content?.is_finished || false
-          });
-        }
-        return newComponents;
-      });
-    } else if (data.type === 'text') {
-      setComponents(prev => {
-        const newComponents = [...prev];
-        
-        // 找到最后一个（最新的）未完成的text组件
-        let activeTextIndex = -1;
-        for (let i = newComponents.length - 1; i >= 0; i--) {
-          if (newComponents[i].type === 'text' && !newComponents[i].isFinished) {
-            activeTextIndex = i;
-            break;
-          }
-        }
-        
-        if (activeTextIndex >= 0) {
-          // 更新当前活跃的text组件
-          newComponents[activeTextIndex] = {
-            ...newComponents[activeTextIndex],
-            data: data,
-            isFinished: data.content?.is_finished || false
-          };
-        } else {
-          // 没有活跃的text组件，创建新的
-          newComponents.push({
-            id: `${data.msg_id}_${Date.now()}`, // 生成唯一ID
-            type: 'text',
-            data: data,
-            isFinished: data.content?.is_finished || false
-          });
-        }
-        return newComponents;
-      });
-    }
+    componentManager.handleNewMessage(data);
   }, []);
 
   // 连接SSE
@@ -157,14 +61,9 @@ function App() {
   }, [isConnected, speed]);
 
 
-  // 组件完成回调
-  const handleComponentComplete = useCallback((componentId) => {
-    console.log(`组件 ${componentId} 完成`);
-  }, []);
-
   // 清空内容
   const clearContent = useCallback(() => {
-    setComponents([]);
+    componentManager.clearComponents();
     setMessageCount(0);
     setLastUpdate('-');
     setIsStreaming(false);
@@ -177,24 +76,15 @@ function App() {
     return unsubscribe;
   }, [handleSSEMessage]);
 
+  // 注册组件管理器监听器
+  useEffect(() => {
+    const unsubscribe = componentManager.addListener(setComponents);
+    return unsubscribe;
+  }, []);
+
   // 渲染组件
   const renderComponent = (component) => {
-    const commonProps = {
-      data: component.data,
-      isFinished: component.isFinished,
-      onComplete: () => handleComponentComplete(component.id)
-    };
-
-    switch (component.type) {
-      case 'step':
-        return <Step key={component.id} {...commonProps} />;
-      case 'think':
-        return <Think key={component.id} {...commonProps} />;
-      case 'text':
-        return <Text key={component.id} {...commonProps} />;
-      default:
-        return null;
-    }
+    return componentManager.renderComponent(component);
   };
 
   return (
