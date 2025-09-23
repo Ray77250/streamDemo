@@ -1,0 +1,122 @@
+/* 在Think卡片内部显示的Search组件样式 */
+.search-inline {
+  background: #f0f8ff;
+  border: 1px solid #b3d9ff;
+  border-radius: 6px;
+  padding: 8px 8px;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+  border-left: 3px solid #007bff;
+  position: relative;
+}
+
+.search-inline.finished {
+  background: #e6f3ff;
+  border-left-color: #0056b3;
+  box-shadow: 0 1px 4px rgba(0, 123, 255, 0.1);
+}
+
+/* 保持原有的独立容器样式（如果需要的话） */
+.search-container {
+  background: #f0f8ff;
+  border: 1px solid #b3d9ff;
+  border-radius: 8px;
+  padding: 12px 12px;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+  border-left: 4px solid #007bff;
+  position: relative;
+}
+
+.search-container.finished {
+  background: #e6f3ff;
+  border-left-color: #0056b3;
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.1);
+}
+
+.search-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  gap: 10px;
+}
+
+.search-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #007bff;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.search-container.finished .search-icon,
+.search-inline.finished .search-icon {
+  background: #0056b3;
+}
+
+.search-symbol {
+  font-size: 14px;
+}
+
+.search-title {
+  font-weight: 600;
+  color: #007bff;
+  font-size: 14px;
+}
+
+.search-container.finished .search-title,
+.search-inline.finished .search-title {
+  color: #0056b3;
+}
+
+.search-indicator {
+  font-size: 12px;
+  color: #6c757d;
+  font-style: italic;
+  margin-left: auto;
+}
+
+.search-content {
+  margin-left: 10px;
+}
+
+.search-text {
+  font-size: 12px;
+  line-height: 1.4;
+  color: #333;
+  min-height: 16px;
+  white-space: pre-wrap;
+}
+
+.search-complete {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 8px 8px;
+  background: rgba(0, 123, 255, 0.1);
+  border-radius: 6px;
+  font-size: 12px;
+  color: #007bff;
+  font-weight: 500;
+}
+
+.complete-icon {
+  font-size: 14px;
+}
+
+.cursor {
+  animation: blink 1s infinite;
+  color: #007bff;
+  font-weight: bold;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}

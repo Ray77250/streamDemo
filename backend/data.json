@@ -1,0 +1,310 @@
+[  
+  {
+  "msg_id": "765881551455182847",
+  "is_finished": false,
+  "finish_reason": "",
+  "type": "text",
+  "content": {
+    "type": "text",
+    "content": "北京"
+  }
+},
+{
+  "msg_id": "765881551455182848",
+  "is_finished": false,
+  "finish_reason": "",
+  "type": "text",
+  "content": {
+    "type": "text",
+    "content": "天气"
+  }
+},
+{
+  "msg_id": "765881551455182849",
+  "is_finished": false,
+  "finish_reason": "",
+  "type": "text",
+  "content": {
+    "type": "text",
+    "content": "怎么样",
+    "is_finished": true
+  }
+},
+  {
+    "msg_id": "765881551455182850",
+    "content": {
+      "content": "正在搜索",
+      "is_finished": false
+    },
+    "is_finished": false,
+    "finish_reason": "",
+    "type": "step"
+  },
+  {
+    "msg_id": "765881551455182851",
+    "content": {
+      "content": "找到50篇资料作为参考",
+      "is_finished": true
+    },
+    "is_finished": false,
+    "finish_reason": "",
+    "type": "step"
+  },
+  {
+    "msg_id": "765881551455182852",
+    "is_finished": false,
+    "finish_reason": "",
+    "type": "think",
+    "content": {
+      "type": "think",
+      "title": "深度思考中...",
+      "content": "北京"
+    }
+  },
+  {
+    "msg_id": "765881551455182853",
+    "is_finished": false,
+    "finish_reason": "",
+    "type": "think",
+    "content": {
+      "type": "think",
+      "content": "今"
+    }
+  },
+  {
+    "msg_id": "765881551455182854",
+    "is_finished": false,
+    "finish_reason": "",
+    "type": "think",
+    "content": {
+      "type": "think",
+      "content": "天"
+    }
+  },
+  {
+    "msg_id": "765881551455182855",
+    "is_finished": false,
+    "finish_reason": "",
+    "type": "think",
+    "content": {
+      "type": "think",
+      "content": "天气"
+    }
+  },
+  {
+    "msg_id": "765881551455182856",
+    "is_finished": false,
+    "finish_reason": "",
+    "type": "think",
+    "content": {
+      "type": "think",
+      "content": "不"
+    }
+  },
+  {
+    "msg_id": "765881551455182857",
+    "is_finished": false,
+    "finish_reason": "",
+    "type": "think",
+    "content": {
+      "type": "think",
+      "content": "错"
+    }
+  },
+  {
+    "msg_id": "765881551455182858",
+    "is_finished": false,
+    "finish_reason": "",
+    "type": "think",
+    "content": {
+      "type": "search",
+      "title": "引用10篇文档",
+      "content": "xxx"
+    }
+  },
+  {
+    "msg_id": "765881551455182859",
+    "is_finished": false,
+    "finish_reason": "",
+    "type": "think",
+    "content": {
+      "type": "search",
+      "title": "引用15篇文档",
+      "content": "xxx"
+    }
+  },
+  {
+    "msg_id": "765881551455182860",
+    "is_finished": false,
+    "finish_reason": "",
+    "type": "think",
+    "content": {
+      "type": "think",
+      "content": ", 适合"
+    }
+  },
+  {
+    "msg_id": "765881551455182861",
+    "is_finished": false,
+    "finish_reason": "",
+    "type": "think",
+    "content": {
+      "type": "think",
+      "content": "出"
+    }
+  },
+  {
+    "msg_id": "765881551455182862",
+    "is_finished": false,
+    "finish_reason": "",
+    "type": "think",
+    "content": {
+      "type": "think",
+      "content": "来游玩！"
+    }
+  },
+  {
+    "msg_id": "765881551455182861",
+    "is_finished": false,
+    "finish_reason": "",
+    "type": "think",
+    "content": {
+      "type": "think",
+      "title": "已完成深度思考",
+      "is_finished": true
+    }
+  },
+  {
+    "msg_id": "765881551455182863",
+    "is_finished": false,
+    "finish_reason": "",
+    "type": "text",
+    "content": {
+      "type": "text",
+      "content": "哈"
+    }
+  },
+  {
+    "msg_id": "765881551455182864",
+    "is_finished": false,
+    "finish_reason": "",
+    "type": "text",
+    "content": {
+      "type": "text",
+      "content": "哈"
+    }
+  },
+  {
+    "msg_id": "765881551455182865",
+    "is_finished": false,
+    "finish_reason": "",
+    "type": "text",
+    "content": {
+      "type": "text",
+      "content": "哈",
+      "is_finished": true
+    }
+  },
+  {
+    "msg_id": "765881551455182866",
+    "is_finished": false,
+    "finish_reason": "",
+    "type": "think",
+    "content": {
+      "type": "think",
+      "title": "深度思考中...",
+      "content": "北京"
+    }
+  },
+  {
+    "msg_id": "765881551455182867",
+    "is_finished": false,
+    "finish_reason": "",
+    "type": "think",
+    "content": {
+      "type": "think",
+      "content": "今"
+    }
+  },
+  {
+    "msg_id": "765881551455182868",
+    "is_finished": false,
+    "finish_reason": "",
+    "type": "think",
+    "content": {
+      "type": "think",
+      "content": "天"
+    }
+  },
+  {
+    "msg_id": "765881551455182869",
+    "is_finished": false,
+    "finish_reason": "",
+    "type": "think",
+    "content": {
+      "type": "think",
+      "content": "天气"
+    }
+  },
+  {
+    "msg_id": "765881551455182870",
+    "is_finished": false,
+    "finish_reason": "",
+    "type": "think",
+    "content": {
+      "type": "think",
+      "content": "不"
+    }
+  },
+  {
+    "msg_id": "765881551455182871",
+    "is_finished": false,
+    "finish_reason": "",
+    "type": "think",
+    "content": {
+      "type": "think",
+      "content": "错"
+    }
+  },
+  {
+    "msg_id": "765881551455182872",
+    "is_finished": false,
+    "finish_reason": "",
+    "type": "think",
+    "content": {
+      "type": "think",
+      "content": ", 适合"
+    }
+  },
+  {
+    "msg_id": "765881551455182873",
+    "is_finished": false,
+    "finish_reason": "",
+    "type": "think",
+    "content": {
+      "type": "think",
+      "content": "出"
+    }
+  },
+  {
+    "msg_id": "765881551455182874",
+    "is_finished": false,
+    "finish_reason": "",
+    "type": "think",
+    "content": {
+      "type": "think",
+      "content": "来游玩！"
+    }
+  },
+  {
+    "msg_id": "765881551455182875",
+    "is_finished": true,
+    "finish_reason": "",
+    "type": "think",
+    "content": {
+      "type": "think",
+      "title": "已完成深度思考",
+      "is_finished": true
+    }
+  }
+]
