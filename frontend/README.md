@@ -92,7 +92,6 @@ src/
   "msg_id": "消息ID",
   "type": "step|think|text",
   "content": {
-    "text": "步骤文本",
     "content": "内容文本",
     "title": "标题",
     "is_finished": false

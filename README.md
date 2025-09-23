@@ -85,7 +85,6 @@ npm start
 
 ### 状态端点
 - **GET** `/status` - 获取服务器状态
-- **GET** `/health` - 健康检查
 
 ## 数据格式
 
@@ -95,7 +94,7 @@ npm start
 {
   "msg_id": "765881551455182850",
   "content": {
-    "text": "找到50篇资料作为参考",
+    "content": "找到50篇资料作为参考",
     "is_finished": false
   },
   "is_finished": false,

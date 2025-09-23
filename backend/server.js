@@ -115,14 +115,6 @@ app.get('/status', (req, res) => {
   });
 })
 
-// 健康检查端点
-app.get('/health', (req, res) => {
-  res.json({ 
-    status: 'healthy', 
-    timestamp: new Date().toISOString(),
-    uptime: process.uptime()
-  });
-});
 
 // 启动服务器
 app.listen(PORT, () => {
@@ -133,7 +125,7 @@ app.listen(PORT, () => {
   console.log(`   GET  http://localhost:${PORT}/status - 查看状态`);
 });
 
-// 优雅关闭
+// 关闭
 process.on('SIGINT', () => {
   console.log('\n正在关闭服务器...');
   process.exit(0);

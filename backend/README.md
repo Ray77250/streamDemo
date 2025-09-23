@@ -55,7 +55,6 @@ npm run dev
 
 ### 状态端点
 - **GET** `/status` - 获取服务器状态
-- **GET** `/health` - 健康检查
 
 ## 数据格式
 
