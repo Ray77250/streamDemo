@@ -1,18 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Step.css';
 
 const Step = ({ data, isFinished, onComplete }) => {
   const [displayText, setDisplayText] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  const processedContentRef = useRef('');
 
   useEffect(() => {
     if (data && data.content) {
       const text = data.content.content || '';
-      if (text && !isTyping) {
+      if (text && text !== processedContentRef.current && !isTyping) {
+        processedContentRef.current = text;
         typeText(text);
       }
     }
-  }, [data]);
+  }, [data, isTyping]);
 
   useEffect(() => {
     if (isFinished && data?.content?.is_finished) {

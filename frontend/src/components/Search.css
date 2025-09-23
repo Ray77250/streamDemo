@@ -1,37 +1,37 @@
 /* 在Think卡片内部显示的Search组件样式 */
 .search-inline {
-  background: #f0f8ff;
-  border: 1px solid #b3d9ff;
-  border-radius: 6px;
-  padding: 8px 8px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 8px 0 8px 15px;
   margin-bottom: 10px;
+  transition: all 0.3s ease;
+  border-left: 2px solid #007bff;
+  position: relative;
+}
+
+.search-inline.finished {
+  background: transparent;
+  border-left-color: #0056b3;
+  box-shadow: none;
+}
+
+/* 保持原有的独立容器样式（如果需要的话） */
+.search-container {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 12px 0 12px 20px;
+  margin-bottom: 15px;
   transition: all 0.3s ease;
   border-left: 3px solid #007bff;
   position: relative;
 }
 
-.search-inline.finished {
-  background: #e6f3ff;
-  border-left-color: #0056b3;
-  box-shadow: 0 1px 4px rgba(0, 123, 255, 0.1);
-}
-
-/* 保持原有的独立容器样式（如果需要的话） */
-.search-container {
-  background: #f0f8ff;
-  border: 1px solid #b3d9ff;
-  border-radius: 8px;
-  padding: 12px 12px;
-  margin-bottom: 15px;
-  transition: all 0.3s ease;
-  border-left: 4px solid #007bff;
-  position: relative;
-}
-
 .search-container.finished {
-  background: #e6f3ff;
+  background: transparent;
   border-left-color: #0056b3;
-  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.1);
+  box-shadow: none;
 }
 
 .search-header {
@@ -82,7 +82,7 @@
 }
 
 .search-content {
-  margin-left: 10px;
+  margin-left: 0;
 }
 
 .search-text {
@@ -93,22 +93,6 @@
   white-space: pre-wrap;
 }
 
-.search-complete {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 10px;
-  padding: 8px 8px;
-  background: rgba(0, 123, 255, 0.1);
-  border-radius: 6px;
-  font-size: 12px;
-  color: #007bff;
-  font-weight: 500;
-}
-
-.complete-icon {
-  font-size: 14px;
-}
 
 .cursor {
   animation: blink 1s infinite;

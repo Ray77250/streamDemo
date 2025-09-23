@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import './Text.css';
+import './Reply.css';
 
-const Text = ({ data, isFinished, onComplete }) => {
+const Reply = ({ data, isFinished, onComplete }) => {
   const [displayText, setDisplayText] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const processedMsgIdsRef = useRef(new Set());
@@ -31,25 +31,24 @@ const Text = ({ data, isFinished, onComplete }) => {
     setIsTyping(true);
     setDisplayText(prev => prev + text); // 追加文本而不是替换
     
-    // 模拟打字延迟
+    // 模拟回复延迟
     setTimeout(() => {
       setIsTyping(false);
-    }, 80);
+    }, 120);
   };
 
   return (
-    <div className={`text-container ${isFinished ? 'finished' : ''}`}>
-      <div className="text-header">
-        <div className="text-title">文本输出</div>
-      </div>
-      <div className="text-content">
-        <div className="text-output">
-          {displayText}
-          {isTyping && <span className="cursor">|</span>}
-        </div>
+    <div className={`reply-container ${isFinished ? 'finished' : ''}`}>
+      <div className="reply-content">
+        {displayText && (
+          <div className="reply-text">
+            {displayText}
+            {isTyping && <span className="cursor">|</span>}
+          </div>
+        )}
       </div>
     </div>
   );
 };
 
-export default Text;
+export default Reply;

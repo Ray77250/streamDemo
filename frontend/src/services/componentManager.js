@@ -2,6 +2,7 @@ import React from 'react';
 import Step from '../components/Step';
 import Think from '../components/Think';
 import Text from '../components/Text';
+import Reply from '../components/Reply';
 
 class ComponentManager {
   constructor() {
@@ -26,7 +27,7 @@ class ComponentManager {
   handleNewMessage(data) {
     const componentType = data.type;
     
-    if (!['step', 'think', 'text'].includes(componentType)) {
+    if (!['step', 'think', 'text', 'reply'].includes(componentType)) {
       return;
     }
 
@@ -80,6 +81,8 @@ class ComponentManager {
         return React.createElement(Think, { key: component.id, ...commonProps });
       case 'text':
         return React.createElement(Text, { key: component.id, ...commonProps });
+      case 'reply':
+        return React.createElement(Reply, { key: component.id, ...commonProps });
       default:
         return null;
     }

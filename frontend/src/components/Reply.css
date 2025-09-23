@@ -1,32 +1,32 @@
-.think-container {
+.reply-container {
   background: transparent;
   border: none;
   border-radius: 0;
   padding: 12px 0 12px 20px;
   margin-bottom: 15px;
   transition: all 0.3s ease;
-  border-left: 3px solid #6f42c1;
+  border-left: 3px solid #28a745;
   position: relative;
 }
 
-.think-container.finished {
+.reply-container.finished {
   background: transparent;
-  border-left-color: #4a2c7a;
+  border-left-color: #1e7e34;
   box-shadow: none;
 }
 
-.think-header {
+.reply-header {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
-  gap: 10px;
+  margin-bottom: 8px;
+  gap: 8px;
 }
 
-.think-icon {
+.reply-icon {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: #6f42c1;
+  background: #28a745;
   color: white;
   display: flex;
   align-items: center;
@@ -35,22 +35,22 @@
   flex-shrink: 0;
 }
 
-.think-container.finished .think-icon {
-  background: #4a2c7a;
+.reply-container.finished .reply-icon {
+  background: #1e7e34;
 }
 
-.brain-icon {
-  font-size: 18px;
-}
-
-.think-title {
-  font-weight: 600;
-  color: #6f42c1;
+.reply-symbol {
   font-size: 16px;
 }
 
-.think-container.finished .think-title {
-  color: #4a2c7a;
+.reply-title {
+  font-weight: 600;
+  color: #28a745;
+  font-size: 16px;
+}
+
+.reply-container.finished .reply-title {
+  color: #1e7e34;
 }
 
 .typing-indicator {
@@ -60,43 +60,24 @@
   margin-left: auto;
 }
 
-.think-content {
+.reply-content {
   margin-left: 0;
+  margin-top: 0;
 }
 
-.think-search-section {
-  margin-bottom: 10px;
-}
-
-.think-text {
+.reply-text {
   font-size: 14px;
   line-height: 1.5;
   color: #333;
   min-height: 20px;
   white-space: pre-wrap;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .cursor {
   animation: blink 1s infinite;
-  color: #6f42c1;
+  color: #28a745;
   font-weight: bold;
-}
-
-.think-complete {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 10px;
-  padding: 8px 12px;
-  background: rgba(111, 66, 193, 0.1);
-  border-radius: 6px;
-  font-size: 12px;
-  color: #6f42c1;
-  font-weight: 500;
-}
-
-.complete-icon {
-  font-size: 14px;
 }
 
 @keyframes blink {

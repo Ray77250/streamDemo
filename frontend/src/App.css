@@ -21,6 +21,38 @@
   gap: 0;
 }
 
+/* 新的左右分栏布局 */
+.main-layout {
+  display: flex;
+  gap: 20px;
+  min-height: 400px;
+}
+
+.left-panel {
+  flex: 1;
+  max-width: 60%;
+  border-right: 1px solid #e9ecef;
+  padding-right: 20px;
+}
+
+.right-panel {
+  flex: 1;
+  max-width: 40%;
+  padding-left: 20px;
+}
+
+.left-components {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.right-components {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
 /* 响应式设计 */
 @media (max-width: 768px) {
   .container {
@@ -48,6 +80,25 @@
   
   .speed-control {
     justify-content: center;
+  }
+  
+  /* 移动端布局调整 */
+  .main-layout {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .left-panel {
+    max-width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #e9ecef;
+    padding-right: 0;
+    padding-bottom: 15px;
+  }
+  
+  .right-panel {
+    max-width: 100%;
+    padding-left: 0;
   }
 }
 

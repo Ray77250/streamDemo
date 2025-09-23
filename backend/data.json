@@ -164,13 +164,53 @@
     }
   },
   {
-    "msg_id": "765881551455182861",
+    "msg_id": "765881551455182863",
     "is_finished": false,
     "finish_reason": "",
     "type": "think",
     "content": {
       "type": "think",
       "title": "已完成深度思考",
+      "is_finished": true
+    }
+  },
+  {
+    "msg_id": "765881551455182864",
+    "is_finished": false,
+    "finish_reason": "",
+    "type": "reply",
+    "content": {
+      "type": "reply",
+      "content": "北京今天"
+    }
+  },
+  {
+    "msg_id": "765881551455182865",
+    "is_finished": false,
+    "finish_reason": "",
+    "type": "reply",
+    "content": {
+      "type": "reply",
+      "content": "天气良好,"
+    }
+  },
+  {
+    "msg_id": "765881551455182866",
+    "is_finished": false,
+    "finish_reason": "",
+    "type": "reply",
+    "content": {
+      "type": "reply",
+      "content": "适合"
+    }
+  },{
+    "msg_id": "765881551455182876",
+    "is_finished": false,
+    "finish_reason": "",
+    "type": "reply",
+    "content": {
+      "type": "reply",
+      "content": "出来玩",
       "is_finished": true
     }
   },
@@ -185,7 +225,7 @@
     }
   },
   {
-    "msg_id": "765881551455182864",
+    "msg_id": "765881551455182867",
     "is_finished": false,
     "finish_reason": "",
     "type": "text",
@@ -195,7 +235,7 @@
     }
   },
   {
-    "msg_id": "765881551455182865",
+    "msg_id": "765881551455182868",
     "is_finished": false,
     "finish_reason": "",
     "type": "text",
@@ -206,7 +246,7 @@
     }
   },
   {
-    "msg_id": "765881551455182866",
+    "msg_id": "765881551455182869",
     "is_finished": false,
     "finish_reason": "",
     "type": "think",
@@ -217,7 +257,7 @@
     }
   },
   {
-    "msg_id": "765881551455182867",
+    "msg_id": "765881551455182870",
     "is_finished": false,
     "finish_reason": "",
     "type": "think",
@@ -227,7 +267,7 @@
     }
   },
   {
-    "msg_id": "765881551455182868",
+    "msg_id": "765881551455182871",
     "is_finished": false,
     "finish_reason": "",
     "type": "think",
@@ -237,7 +277,7 @@
     }
   },
   {
-    "msg_id": "765881551455182869",
+    "msg_id": "765881551455182872",
     "is_finished": false,
     "finish_reason": "",
     "type": "think",
@@ -247,7 +287,7 @@
     }
   },
   {
-    "msg_id": "765881551455182870",
+    "msg_id": "765881551455182873",
     "is_finished": false,
     "finish_reason": "",
     "type": "think",
@@ -257,7 +297,7 @@
     }
   },
   {
-    "msg_id": "765881551455182871",
+    "msg_id": "765881551455182874",
     "is_finished": false,
     "finish_reason": "",
     "type": "think",
@@ -267,7 +307,7 @@
     }
   },
   {
-    "msg_id": "765881551455182872",
+    "msg_id": "765881551455182875",
     "is_finished": false,
     "finish_reason": "",
     "type": "think",
@@ -277,7 +317,7 @@
     }
   },
   {
-    "msg_id": "765881551455182873",
+    "msg_id": "765881551455182876",
     "is_finished": false,
     "finish_reason": "",
     "type": "think",
@@ -287,7 +327,7 @@
     }
   },
   {
-    "msg_id": "765881551455182874",
+    "msg_id": "765881551455182877",
     "is_finished": false,
     "finish_reason": "",
     "type": "think",
@@ -297,14 +337,53 @@
     }
   },
   {
-    "msg_id": "765881551455182875",
-    "is_finished": true,
+    "msg_id": "765881551455182878",
+    "is_finished": false,
     "finish_reason": "",
     "type": "think",
     "content": {
       "type": "think",
       "title": "已完成深度思考",
       "is_finished": true
+    }
+  },
+  {
+    "msg_id": "765881551455182879",
+    "is_finished": false,
+    "finish_reason": "",
+    "type": "reply",
+    "content": {
+      "type": "reply",
+      "content": "北京今天"
+    }
+  },
+  {
+    "msg_id": "765881551455182880",
+    "is_finished": false,
+    "finish_reason": "",
+    "type": "reply",
+    "content": {
+      "type": "reply",
+      "content": "天气良好,"
+    }
+  },
+  {
+    "msg_id": "765881551455182881",
+    "is_finished": false,
+    "finish_reason": "",
+    "type": "reply",
+    "content": {
+      "type": "reply",
+      "content": "适合"
+    }
+  },{
+    "msg_id": "765881551455182882",
+    "is_finished": true,
+    "finish_reason": "",
+    "type": "reply",
+    "content": {
+      "type": "reply",
+      "content": "出来玩"
     }
   }
 ]

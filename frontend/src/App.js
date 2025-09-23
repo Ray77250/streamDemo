@@ -149,8 +149,21 @@ function App() {
               <p>请先连接SSE，然后开始推送数据</p>
             </div>
           ) : (
-            <div className="components-container">
-              {components.map(renderComponent)}
+            <div className="main-layout">
+              <div className="left-panel">
+                <div className="left-components">
+                  {components
+                    .filter(comp => comp.type !== 'text')
+                    .map(renderComponent)}
+                </div>
+              </div>
+              <div className="right-panel">
+                <div className="right-components">
+                  {components
+                    .filter(comp => comp.type === 'text')
+                    .map(renderComponent)}
+                </div>
+              </div>
             </div>
           )}
         </div>

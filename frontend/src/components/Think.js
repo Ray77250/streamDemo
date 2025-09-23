@@ -1,42 +1,43 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Think.css';
 import Search from './Search';
 
 const Think = ({ data, isFinished, onComplete }) => {
   const [displayText, setDisplayText] = useState('');
   const [isTyping, setIsTyping] = useState(false);
-  const [showComplete, setShowComplete] = useState(false);
-  const [currentTitle, setCurrentTitle] = useState('');
   const [hasSearch, setHasSearch] = useState(false);
   const [searchData, setSearchData] = useState(null);
-  const [processedMsgIds, setProcessedMsgIds] = useState(new Set());
+  const processedMsgIdsRef = useRef(new Set());
 
   useEffect(() => {
     if (data && data.content && data.msg_id) {
       const content = data.content.content || '';
-      const title = data.content.title || '';
       const type = data.content.type;
-      
-      if (title && title !== currentTitle) {
-        setCurrentTitle(title);
-      }
       
       // 如果遇到search类型，记录并保存search数据
       if (type === 'search') {
         setHasSearch(true);
         setSearchData(data.content);
       }
+      // 处理search类型的content内容
+      if (type === 'search' && content && !processedMsgIdsRef.current.has(data.msg_id)) {
+        processedMsgIdsRef.current.add(data.msg_id);
+        // 将search内容传递给Search组件进行追加
+        setSearchData(prev => ({
+          ...prev,
+          content: (prev?.content || '') + content
+        }));
+      }
       // 检查是否已经处理过这个消息
-      if (content && !isTyping && type !== 'search' && !processedMsgIds.has(data.msg_id)) {
-        setProcessedMsgIds(prev => new Set([...prev, data.msg_id]));
+      if (content && !isTyping && type !== 'search' && !processedMsgIdsRef.current.has(data.msg_id)) {
+        processedMsgIdsRef.current.add(data.msg_id);
         typeText(content);
       }
     }
-  }, [data, isTyping, currentTitle, processedMsgIds]);
+  }, [data, isTyping]);
 
   useEffect(() => {
     if (isFinished && data?.content?.is_finished) {
-      setShowComplete(true);
       setIsTyping(false);
       if (onComplete) {
         onComplete();
@@ -58,10 +59,7 @@ const Think = ({ data, isFinished, onComplete }) => {
     if (data?.content?.type === 'search') {
       return '搜索中...';
     }
-    if (data?.content?.title) {
-      return data.content.title;
-    }
-    return '思考中...';
+    return data?.content?.title || '深度思考中...';
   };
 
   return (

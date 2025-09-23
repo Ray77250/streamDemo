@@ -1,14 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Search.css';
 
 const Search = ({ data, isFinished }) => {
   const { title, content } = data || {};
   const [displayText, setDisplayText] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  const processedContentRef = useRef('');
 
   useEffect(() => {
     if (content) {
-      typeText(content);
+      // 检查是否是新的内容（不是重复的）
+      if (content !== processedContentRef.current) {
+        processedContentRef.current = content;
+        typeText(content);
+      }
     }
   }, [content]);
 
