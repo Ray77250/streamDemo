@@ -26,18 +26,12 @@ const Step = ({ data, isFinished, onComplete }) => {
 
   const typeText = (text) => {
     setIsTyping(true);
-    setDisplayText('');
-    let currentIndex = 0;
-
-    const typeInterval = setInterval(() => {
-      if (currentIndex < text.length) {
-        setDisplayText(text.substring(0, currentIndex + 1));
-        currentIndex++;
-      } else {
-        clearInterval(typeInterval);
-        setIsTyping(false);
-      }
-    }, 50); 
+    setDisplayText(prev => prev + text); // 追加文本而不是替换
+    
+    // 模拟回复延迟
+    setTimeout(() => {
+      setIsTyping(false);
+    }, 120);
   };
 
   return (
