@@ -7,31 +7,36 @@ const Think = ({ data, isFinished, onComplete }) => {
   const [isTyping, setIsTyping] = useState(false);
   const [hasSearch, setHasSearch] = useState(false);
   const [searchData, setSearchData] = useState(null);
-  const processedMsgIdsRef = useRef(new Set());
+  const lastProcessedMsgIdRef = useRef('');
 
   useEffect(() => {
     if (data && data.content && data.msg_id) {
       const content = data.content.content || '';
       const type = data.content.type;
       
-      // 如果遇到search类型，记录并保存search数据
-      if (type === 'search') {
-        setHasSearch(true);
-        setSearchData(data.content);
-      }
-      // 处理search类型的content内容
-      if (type === 'search' && content && !processedMsgIdsRef.current.has(data.msg_id)) {
-        processedMsgIdsRef.current.add(data.msg_id);
-        // 将search内容传递给Search组件进行追加
-        setSearchData(prev => ({
-          ...prev,
-          content: (prev?.content || '') + content
-        }));
-      }
-      // 检查是否已经处理过这个消息
-      if (content && !isTyping && type !== 'search' && !processedMsgIdsRef.current.has(data.msg_id)) {
-        processedMsgIdsRef.current.add(data.msg_id);
-        typeText(content);
+      // 只有当消息ID不同时才处理，避免重复处理同一消息
+      if (lastProcessedMsgIdRef.current !== data.msg_id) {
+        lastProcessedMsgIdRef.current = data.msg_id;
+        
+        // 如果遇到search类型，记录并保存search数据
+        if (type === 'search') {
+          setHasSearch(true);
+          setSearchData(data.content);
+        }
+        
+        // 处理search类型的content内容
+        if (type === 'search' && content) {
+          // 将search内容传递给Search组件进行追加
+          setSearchData(prev => ({
+            ...prev,
+            content: (prev?.content || '') + content
+          }));
+        }
+        
+        // 处理非search类型的消息
+        if (content && !isTyping && type !== 'search') {
+          typeText(content);
+        }
       }
     }
   }, [data, isTyping]);

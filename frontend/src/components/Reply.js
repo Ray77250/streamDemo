@@ -4,15 +4,15 @@ import './Reply.css';
 const Reply = ({ data, isFinished, onComplete }) => {
   const [displayText, setDisplayText] = useState('');
   const [isTyping, setIsTyping] = useState(false);
-  const processedMsgIdsRef = useRef(new Set());
+  const lastProcessedMsgIdRef = useRef('');
 
   useEffect(() => {
     if (data && data.content && data.msg_id) {
       const content = data.content.content || '';
       
-      // 检查是否已经处理过这个消息
-      if (content && !isTyping && !processedMsgIdsRef.current.has(data.msg_id)) {
-        processedMsgIdsRef.current.add(data.msg_id);
+      // 只有当消息ID不同时才处理，避免重复处理同一消息
+      if (content && !isTyping && lastProcessedMsgIdRef.current !== data.msg_id) {
+        lastProcessedMsgIdRef.current = data.msg_id;
         typeText(content);
       }
     }

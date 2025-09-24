@@ -31,41 +31,44 @@ class ComponentManager {
       return;
     }
 
-    // 检查是否已经处理过这个消息ID
-    const existingComponent = this.components.find(comp => 
-      comp.data.msg_id === data.msg_id
-    );
+    // 一次性遍历查找：优先查找相同msg_id的组件，其次查找未完成的同类型组件
+    let existingComponentIndex = -1;
+    let activeComponentIndex = -1;
+    
+    for (let i = this.components.length - 1; i >= 0; i--) {
+      const comp = this.components[i];
+      
+      // 如果找到相同msg_id的组件，优先使用
+      if (comp.data.msg_id === data.msg_id) {
+        existingComponentIndex = i;
+        break;
+      }
+      
+      // 记录最后一个未完成的同类型组件
+      if (activeComponentIndex === -1 && comp.type === componentType && !comp.isFinished) {
+        activeComponentIndex = i;
+      }
+    }
 
-    if (existingComponent) {
+    if (existingComponentIndex >= 0) {
       // 更新现有组件
-      existingComponent.data = data;
-      existingComponent.isFinished = data.content?.is_finished || false;
+      this.components[existingComponentIndex].data = data;
+      this.components[existingComponentIndex].isFinished = data.content?.is_finished || false;
+    } else if (activeComponentIndex >= 0) {
+      // 更新最后一个未完成的同类型组件
+      this.components[activeComponentIndex] = {
+        ...this.components[activeComponentIndex],
+        data: data,
+        isFinished: data.content?.is_finished || false
+      };
     } else {
-      // 找到最后一个未完成的同类型组件
-      let activeIndex = -1;
-      for (let i = this.components.length - 1; i >= 0; i--) {
-        if (this.components[i].type === componentType && !this.components[i].isFinished) {
-          activeIndex = i;
-          break;
-        }
-      }
-
-      if (activeIndex >= 0) {
-        // 更新现有组件
-        this.components[activeIndex] = {
-          ...this.components[activeIndex],
-          data: data,
-          isFinished: data.content?.is_finished || false
-        };
-      } else {
-        // 创建新组件
-        this.components.push({
-          id: `${data.msg_id}_${Date.now()}`,
-          type: componentType,
-          data: data,
-          isFinished: data.content?.is_finished || false
-        });
-      }
+      // 创建新组件
+      this.components.push({
+        id: `${data.msg_id}_${Date.now()}`,
+        type: componentType,
+        data: data,
+        isFinished: data.content?.is_finished || false
+      });
     }
 
     this.notifyListeners();
