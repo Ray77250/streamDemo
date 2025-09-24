@@ -1,6 +1,6 @@
 .think-container {
   background: transparent;
-  border: 1px solid #e9ecef;
+  border: 1px solid #e3e6ea;
   border-radius: 8px;
   padding: 12px 16px;
   margin-bottom: 15px;
@@ -10,7 +10,7 @@
 
 .think-container.finished {
   background: transparent;
-  border-color: #4a2c7a;
+  border-color: #8a6bb8;
   box-shadow: none;
 }
 
@@ -23,12 +23,12 @@
 
 .think-title {
   font-weight: 600;
-  color: #6f42c1;
+  color: #8a6bb8;
   font-size: 15px;
 }
 
 .think-container.finished .think-title {
-  color: #4a2c7a;
+  color: #6b4c8a;
 }
 
 .think-content {
@@ -42,7 +42,7 @@
 .think-text {
   font-size: 13px;
   line-height: 1.5;
-  color: #333;
+  color: #666;
   min-height: 20px;
   white-space: pre-wrap;
 }

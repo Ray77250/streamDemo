@@ -1,5 +1,5 @@
 .step-container {
-  background: #f8f9fa;
+  background: #fafbfc;
   border: 1px solid #e9ecef;
   border-radius: 8px;
   padding: 8px 8px;
@@ -12,8 +12,8 @@
 }
 
 .step-container.finished {
-  background: #f8f9fa;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: #fafbfc;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 
 
