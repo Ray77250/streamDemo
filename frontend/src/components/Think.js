@@ -80,9 +80,8 @@ const Think = ({ data, isFinished, onComplete }) => {
 
   const typeText = (text) => {
     setIsTyping(true);
-    setDisplayText(prev => prev + text); // 追加文本而不是替换
+    setDisplayText(prev => prev + text); 
     
-    // 立即完成，无延迟
     setIsTyping(false);
   };
 
