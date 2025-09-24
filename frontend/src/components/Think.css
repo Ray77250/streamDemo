@@ -16,6 +16,7 @@
   display: inline-block;
   flex: none;
   align-self: flex-start;
+  overflow: hidden;
 }
 
 .think-container.collapsed .think-content {
@@ -23,6 +24,10 @@
   opacity: 0;
   margin: 0;
   padding: 0;
+  overflow: hidden;
+  position: absolute;
+  width: 0;
+  height: 0;
 }
 
 .think-container.finished {
@@ -44,6 +49,9 @@
   width: auto;
   gap: 8px;
   margin-bottom: 0;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .think-title {
@@ -60,6 +68,7 @@
   flex: none;
   overflow: visible;
   text-overflow: unset;
+  white-space: nowrap;
 }
 
 .think-container.finished .think-title {

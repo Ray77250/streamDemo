@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, memo } from 'react';
 import './Think.css';
 import Search from './Search';
 
@@ -9,9 +9,21 @@ const Think = ({ data, isFinished, onComplete }) => {
   const [searchData, setSearchData] = useState(null);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [shouldAutoCollapse, setShouldAutoCollapse] = useState(false);
+  const [isLocked, setIsLocked] = useState(false); // 标记组件是否已锁定，不再响应外部更新
   const lastProcessedMsgIdRef = useRef('');
+  const collapseStateRef = useRef(false); // 用于持久化展开/收缩状态
+
+  // 同步ref和state，确保状态持久化
+  useEffect(() => {
+    setIsCollapsed(collapseStateRef.current);
+  }, []);
 
   useEffect(() => {
+    // 如果组件已锁定，不再处理新数据
+    if (isLocked) {
+      return;
+    }
+
     if (data && data.content && data.msg_id) {
       const content = data.content.content || '';
       const type = data.content.type;
@@ -41,12 +53,13 @@ const Think = ({ data, isFinished, onComplete }) => {
         }
       }
     }
-  }, [data, isTyping]);
+  }, [data, isTyping, isLocked]);
 
   useEffect(() => {
     if (isFinished && data?.content?.is_finished) {
       setIsTyping(false);
       setShouldAutoCollapse(true);
+      setIsLocked(true); // 锁定组件，不再响应外部更新
       if (onComplete) {
         onComplete();
       }
@@ -58,6 +71,7 @@ const Think = ({ data, isFinished, onComplete }) => {
     if (shouldAutoCollapse) {
       const timer = setTimeout(() => {
         setIsCollapsed(true);
+        collapseStateRef.current = true; // 同时更新ref
         setShouldAutoCollapse(false);
       }, 1000); // 1秒后自动折叠
       return () => clearTimeout(timer);
@@ -80,7 +94,9 @@ const Think = ({ data, isFinished, onComplete }) => {
   };
 
   const toggleCollapse = () => {
-    setIsCollapsed(!isCollapsed);
+    const newCollapsedState = !isCollapsed;
+    setIsCollapsed(newCollapsedState);
+    collapseStateRef.current = newCollapsedState; // 同时更新ref以持久化状态
   };
 
   return (
@@ -113,4 +129,21 @@ const Think = ({ data, isFinished, onComplete }) => {
   );
 };
 
-export default Think;
+// 使用React.memo优化渲染，自定义比较函数
+const MemoizedThink = memo(Think, (prevProps, nextProps) => {
+  // 如果组件已完成，则不需要重新渲染
+  if (prevProps.isFinished && nextProps.isFinished) {
+    return true; // 返回true表示props相同，不需要重新渲染
+  }
+  
+  // 如果msg_id相同且都是完成状态，不需要重新渲染
+  if (prevProps.data?.msg_id === nextProps.data?.msg_id && 
+      prevProps.isFinished && nextProps.isFinished) {
+    return true;
+  }
+  
+  // 其他情况需要重新渲染
+  return false;
+});
+
+export default MemoizedThink;
