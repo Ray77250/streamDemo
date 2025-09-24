@@ -2,10 +2,27 @@
   background: transparent;
   border: 1px solid #e3e6ea;
   border-radius: 8px;
-  padding: 12px 16px;
-  margin-bottom: 15px;
+  padding: 8px 10px;
+  margin-bottom: 5px;
   transition: all 0.3s ease;
   position: relative;
+  overflow: hidden;
+}
+
+.think-container.collapsed {
+  padding: 6px 10px;
+  width: fit-content ;
+  max-width: max-content ;
+  display: inline-block ;
+  flex: none ;
+  align-self: flex-start ;
+}
+
+.think-container.collapsed .think-content {
+  max-height: 0;
+  opacity: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .think-container.finished {
@@ -17,8 +34,15 @@
 .think-header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   margin-bottom: 10px;
   gap: 10px;
+}
+
+.think-container.collapsed .think-header {
+  justify-content: flex-start;
+  gap: 4px;
+  margin-bottom: 0;
 }
 
 .think-title {
@@ -33,6 +57,9 @@
 
 .think-content {
   margin-left: 0;
+  transition: all 0.3s ease;
+  max-height: 1000px;
+  opacity: 1;
 }
 
 .think-search-section {
@@ -56,4 +83,33 @@
 @keyframes blink {
   0%, 50% { opacity: 1; }
   51%, 100% { opacity: 0; }
+}
+
+/* 控制按钮样式 */
+
+.think-toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  color: #999;
+  font-size: 12px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  transition: all 0.2s ease;
+  min-width: 20px;
+  min-height: 20px;
+}
+
+.think-toggle-btn:hover {
+  background-color: #f5f5f5;
+  color: #666;
+}
+
+.think-toggle-btn:active {
+  background-color: #e5e5e5;
+  transform: scale(0.95);
 }

@@ -7,6 +7,8 @@ const Think = ({ data, isFinished, onComplete }) => {
   const [isTyping, setIsTyping] = useState(false);
   const [hasSearch, setHasSearch] = useState(false);
   const [searchData, setSearchData] = useState(null);
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [shouldAutoCollapse, setShouldAutoCollapse] = useState(false);
   const lastProcessedMsgIdRef = useRef('');
 
   useEffect(() => {
@@ -44,11 +46,23 @@ const Think = ({ data, isFinished, onComplete }) => {
   useEffect(() => {
     if (isFinished && data?.content?.is_finished) {
       setIsTyping(false);
+      setShouldAutoCollapse(true);
       if (onComplete) {
         onComplete();
       }
     }
   }, [isFinished, data, onComplete]);
+
+  // 思考完成后自动折叠
+  useEffect(() => {
+    if (shouldAutoCollapse) {
+      const timer = setTimeout(() => {
+        setIsCollapsed(true);
+        setShouldAutoCollapse(false);
+      }, 1000); // 1秒后自动折叠
+      return () => clearTimeout(timer);
+    }
+  }, [shouldAutoCollapse]);
 
   const typeText = (text) => {
     setIsTyping(true);
@@ -65,10 +79,23 @@ const Think = ({ data, isFinished, onComplete }) => {
     return data?.content?.title || '深度思考中...';
   };
 
+  const toggleCollapse = () => {
+    setIsCollapsed(!isCollapsed);
+  };
+
   return (
-    <div className={`think-container ${isFinished ? 'finished' : ''}`}>
+    <div className={`think-container ${isFinished ? 'finished' : ''} ${isCollapsed ? 'collapsed' : ''}`}>
       <div className="think-header">
         <div className="think-title">{getTitle()}</div>
+        {isFinished && (
+          <button 
+            className="think-toggle-btn"
+            onClick={toggleCollapse}
+            aria-label={isCollapsed ? '展开' : '折叠'}
+          >
+            {isCollapsed ? '▶' : '▼'}
+          </button>
+        )}
       </div>
       <div className="think-content">
         {hasSearch && searchData && (
