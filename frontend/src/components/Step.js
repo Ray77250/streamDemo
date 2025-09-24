@@ -34,9 +34,6 @@ const Step = ({ data, isFinished, onComplete }) => {
 
   return (
     <div className={`step-container ${isFinished ? 'finished' : ''}`}>
-      <div className="step-header">
-        <div className="step-title">步骤</div>
-      </div>
       <div className="step-content">
         <div className="step-text">
           {displayText}

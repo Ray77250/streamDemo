@@ -33,7 +33,7 @@
   {
     "msg_id": "765881551455182843",
     "content": {
-      "content": "正在",
+      "content": "找",
       "is_finished": false
     },
     "is_finished": false,
@@ -43,7 +43,7 @@
   {
     "msg_id": "765881551455182844",
     "content": {
-      "content": "搜索",
+      "content": "到",
       "is_finished": false
     },
     "is_finished": false,
@@ -53,7 +53,7 @@
   {
     "msg_id": "765881551455182845",
     "content": {
-      "content": "找到",
+      "content": "50篇",
       "is_finished": false
     },
     "is_finished": false,
@@ -63,7 +63,7 @@
   {
     "msg_id": "765881551455182846",
     "content": {
-      "content": "50篇",
+      "content": "资",
       "is_finished": false
     },
     "is_finished": false,
@@ -73,7 +73,7 @@
   {
     "msg_id": "765881551455182847",
     "content": {
-      "content": "资料",
+      "content": "料",
       "is_finished": false
     },
     "is_finished": false,

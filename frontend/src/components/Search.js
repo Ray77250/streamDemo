@@ -29,11 +29,11 @@ const Search = ({ data, isFinished }) => {
     <div className={`search-inline ${isFinished ? 'finished' : ''}`}>
       <div className="search-header">
         <div className="search-title">{title || '搜索中...'}</div>
-      </div>
-      <div className="search-content">
-        <div className="search-text">
-          {displayText || '正在搜索相关文档...'}
-          {isTyping && <span className="cursor">|</span>}
+        <div className="search-content">
+          <div className="search-text">
+            {displayText || '正在搜索相关文档...'}
+            {isTyping && <span className="cursor">|</span>}
+          </div>
         </div>
       </div>
     </div>

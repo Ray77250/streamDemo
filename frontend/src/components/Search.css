@@ -37,8 +37,8 @@
 .search-header {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
-  gap: 10px;
+  margin-bottom: 0;
+  gap: 8px;
 }
 
 .search-icon {
@@ -64,9 +64,9 @@
 }
 
 .search-title {
-  font-weight: 600;
+  font-weight: 500;
   color: #007bff;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .search-container.finished .search-title,
@@ -83,14 +83,16 @@
 
 .search-content {
   margin-left: 0;
+  display: inline;
 }
 
 .search-text {
-  font-size: 12px;
+  font-size: 11px;
   line-height: 1.4;
   color: #333;
   min-height: 16px;
   white-space: pre-wrap;
+  display: inline;
 }
 
 
