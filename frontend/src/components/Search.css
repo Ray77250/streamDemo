@@ -1,37 +1,20 @@
 /* 在Think卡片内部显示的Search组件样式 */
 .search-inline {
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  padding: 8px 0 8px 15px;
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 8px 10px;
   margin-bottom: 10px;
   transition: all 0.3s ease;
-  border-left: 2px solid #007bff;
   position: relative;
+  display: inline-block;
+  width: fit-content;
+  max-width: 100%;
 }
 
 .search-inline.finished {
-  background: transparent;
-  border-left-color: #0056b3;
-  box-shadow: none;
-}
-
-/* 保持原有的独立容器样式（如果需要的话） */
-.search-container {
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  padding: 12px 0 12px 20px;
-  margin-bottom: 15px;
-  transition: all 0.3s ease;
-  border-left: 3px solid #007bff;
-  position: relative;
-}
-
-.search-container.finished {
-  background: transparent;
-  border-left-color: #0056b3;
-  box-shadow: none;
+  background: #f8f9fa;
+  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.1);
 }
 
 .search-header {
@@ -41,44 +24,14 @@
   gap: 8px;
 }
 
-.search-icon {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: #007bff;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  flex-shrink: 0;
-}
-
-.search-container.finished .search-icon,
-.search-inline.finished .search-icon {
-  background: #0056b3;
-}
-
-.search-symbol {
-  font-size: 14px;
-}
-
 .search-title {
   font-weight: 500;
   color: #007bff;
   font-size: 12px;
 }
 
-.search-container.finished .search-title,
 .search-inline.finished .search-title {
   color: #0056b3;
-}
-
-.search-indicator {
-  font-size: 12px;
-  color: #6c757d;
-  font-style: italic;
-  margin-left: auto;
 }
 
 .search-content {
@@ -94,7 +47,6 @@
   white-space: pre-wrap;
   display: inline;
 }
-
 
 .cursor {
   animation: blink 1s infinite;

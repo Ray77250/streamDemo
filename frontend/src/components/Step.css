@@ -2,8 +2,8 @@
   background: #f8f9fa;
   border: 1px solid #e9ecef;
   border-radius: 8px;
-  padding: 8px 10px;
-  margin-bottom: 15px;
+  padding: 8px 8px;
+  margin-bottom: 5px;
   transition: all 0.3s ease;
   position: relative;
   display: inline-block;
@@ -13,8 +13,7 @@
 
 .step-container.finished {
   background: #f8f9fa;
-  border-color: #28a745;
-  box-shadow: 0 2px 4px rgba(40, 167, 69, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -23,7 +22,7 @@
 }
 
 .step-text {
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.5;
   color: #333;
   min-height: 20px;
