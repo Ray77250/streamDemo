@@ -118,11 +118,11 @@ app.get('/status', (req, res) => {
 
 // 启动服务器
 app.listen(PORT, () => {
-  console.log(`🚀 SSE服务器运行在 http://localhost:${PORT}`);
-  console.log(`📡 SSE端点: http://localhost:${PORT}/events`);
-  console.log(`🎮 控制端点:`);
-  console.log(`   POST http://localhost:${PORT}/start-stream - 开始推送`);
-  console.log(`   GET  http://localhost:${PORT}/status - 查看状态`);
+  console.log(`SSE服务器运行在 http://localhost:${PORT}`);
+  console.log(`SSE端点: http://localhost:${PORT}/events`);
+  console.log(`控制端点:`);
+  console.log(`POST http://localhost:${PORT}/start-stream - 开始推送`);
+  console.log(`GET  http://localhost:${PORT}/status - 查看状态`);
 });
 
 // 关闭
