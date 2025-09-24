@@ -37,14 +37,9 @@ const Text = ({ data, isFinished, onComplete }) => {
 
   return (
     <div className={`text-container ${isFinished ? 'finished' : ''}`}>
-      <div className="text-header">
-        <div className="text-title">文本输出</div>
-      </div>
-      <div className="text-content">
-        <div className="text-output">
-          {displayText}
-          {isTyping && <span className="cursor">|</span>}
-        </div>
+      <div className="text-output">
+        {displayText}
+        {isTyping && <span className="cursor">|</span>}
       </div>
     </div>
   );

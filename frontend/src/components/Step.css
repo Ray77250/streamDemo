@@ -1,18 +1,20 @@
 .step-container {
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  padding: 12px 0 12px 20px;
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 8px 10px;
   margin-bottom: 15px;
   transition: all 0.3s ease;
-  border-left: 3px solid #28a745;
   position: relative;
+  display: inline-block;
+  width: fit-content;
+  max-width: 100%;
 }
 
 .step-container.finished {
-  background: transparent;
-  border-left-color: #155724;
-  box-shadow: none;
+  background: #f8f9fa;
+  border-color: #28a745;
+  box-shadow: 0 2px 4px rgba(40, 167, 69, 0.1);
 }
 
 

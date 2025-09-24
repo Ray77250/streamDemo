@@ -2,16 +2,14 @@
   background: transparent;
   border: none;
   border-radius: 0;
-  padding: 12px 0 12px 20px;
+  padding: 8px 10px;
   margin-bottom: 15px;
   transition: all 0.3s ease;
-  border-left: 3px solid #28a745;
   position: relative;
 }
 
 .reply-container.finished {
   background: transparent;
-  border-left-color: #1e7e34;
   box-shadow: none;
 }
 
