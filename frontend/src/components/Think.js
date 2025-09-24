@@ -87,15 +87,13 @@ const Think = ({ data, isFinished, onComplete }) => {
     <div className={`think-container ${isFinished ? 'finished' : ''} ${isCollapsed ? 'collapsed' : ''}`}>
       <div className="think-header">
         <div className="think-title">{getTitle()}</div>
-        {isFinished && (
-          <button 
-            className="think-toggle-btn"
-            onClick={toggleCollapse}
-            aria-label={isCollapsed ? '展开' : '折叠'}
-          >
-            {isCollapsed ? '▶' : '▼'}
-          </button>
-        )}
+        <button 
+          className="think-toggle-btn"
+          onClick={toggleCollapse}
+          aria-label={isCollapsed ? '展开' : '折叠'}
+          data-symbol={isCollapsed ? '▶' : '▼'}
+        >
+        </button>
       </div>
       <div className="think-content">
         {hasSearch && searchData && (
