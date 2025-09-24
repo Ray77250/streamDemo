@@ -7,7 +7,6 @@ function App() {
   const [isConnected, setIsConnected] = useState(false);
   const [messageCount, setMessageCount] = useState(0);
   const [lastUpdate, setLastUpdate] = useState('-');
-  const [speed, setSpeed] = useState(1000);
   const [components, setComponents] = useState([]);
   const [isStreaming, setIsStreaming] = useState(false);
 
@@ -52,13 +51,13 @@ function App() {
     }
     
     try {
-      await sseService.startStream(speed);
+      await sseService.startStream();
       setIsStreaming(true);
     } catch (error) {
       console.error('开始推送失败:', error);
       alert('开始推送失败: ' + error.message);
     }
-  }, [isConnected, speed]);
+  }, [isConnected]);
 
 
   // 清空内容
@@ -127,19 +126,6 @@ function App() {
             清空内容
           </button>
 
-          <div className="speed-control">
-            <label>推送速度:</label>
-            <select 
-              value={speed} 
-              onChange={(e) => setSpeed(parseInt(e.target.value))}
-              disabled={isStreaming}
-            >
-              <option value={500}>快速 (500ms)</option>
-              <option value={1000}>正常 (1s)</option>
-              <option value={2000}>慢速 (2s)</option>
-              <option value={3000}>很慢 (3s)</option>
-            </select>
-          </div>
         </div>
 
         <div className="content-area">

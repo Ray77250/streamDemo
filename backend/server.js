@@ -54,7 +54,7 @@ app.get('/events', (req, res) => {
 
 // 开始推送数据的端点
 app.post('/start-stream', (req, res) => {
-  const { speed = 1000 } = req.body;
+  const speed = 1; // 固定为10ms，飞速推送
   
   console.log(`开始推送数据，速度: ${speed}ms`);
   
@@ -70,7 +70,7 @@ app.post('/start-stream', (req, res) => {
 
 
 // 推送数据到所有客户端
-function pushDataToClients(speed = 1000) {
+function pushDataToClients(speed = 1) {
   const data = loadData();
   let currentIndex = 0;
 

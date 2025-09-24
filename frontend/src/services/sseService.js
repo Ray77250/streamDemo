@@ -37,7 +37,7 @@ class SSEService {
   }
 
 
-  async startStream(speed = 1000) {
+  async startStream() {
     if (!this.isConnected) {
       throw new Error('请先连接SSE');
     }
@@ -46,7 +46,7 @@ class SSEService {
       const response = await fetch('http://localhost:3001/start-stream', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ speed: parseInt(speed) })
+        body: JSON.stringify({})
       });
       const data = await response.json();
       console.log('开始推送:', data);

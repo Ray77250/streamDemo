@@ -21,10 +21,8 @@ const Search = ({ data, isFinished }) => {
     setIsTyping(true);
     setDisplayText(prev => prev + text); // 追加文本而不是替换
     
-    // 模拟打字延迟
-    setTimeout(() => {
-      setIsTyping(false);
-    }, 100);
+    // 立即完成，无延迟
+    setIsTyping(false);
   };
   
   return (

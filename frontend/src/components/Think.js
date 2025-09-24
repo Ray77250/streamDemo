@@ -49,10 +49,8 @@ const Think = ({ data, isFinished, onComplete }) => {
     setIsTyping(true);
     setDisplayText(prev => prev + text); // 追加文本而不是替换
     
-    // 模拟思考延迟
-    setTimeout(() => {
-      setIsTyping(false);
-    }, 100);
+    // 立即完成，无延迟
+    setIsTyping(false);
   };
 
   const getTitle = () => {

@@ -31,30 +31,41 @@ class ComponentManager {
       return;
     }
 
-    // 找到最后一个未完成的同类型组件
-    let activeIndex = -1;
-    for (let i = this.components.length - 1; i >= 0; i--) {
-      if (this.components[i].type === componentType && !this.components[i].isFinished) {
-        activeIndex = i;
-        break;
-      }
-    }
+    // 检查是否已经处理过这个消息ID
+    const existingComponent = this.components.find(comp => 
+      comp.data.msg_id === data.msg_id
+    );
 
-    if (activeIndex >= 0) {
+    if (existingComponent) {
       // 更新现有组件
-      this.components[activeIndex] = {
-        ...this.components[activeIndex],
-        data: data,
-        isFinished: data.content?.is_finished || false
-      };
+      existingComponent.data = data;
+      existingComponent.isFinished = data.content?.is_finished || false;
     } else {
-      // 创建新组件
-      this.components.push({
-        id: `${data.msg_id}_${Date.now()}`,
-        type: componentType,
-        data: data,
-        isFinished: data.content?.is_finished || false
-      });
+      // 找到最后一个未完成的同类型组件
+      let activeIndex = -1;
+      for (let i = this.components.length - 1; i >= 0; i--) {
+        if (this.components[i].type === componentType && !this.components[i].isFinished) {
+          activeIndex = i;
+          break;
+        }
+      }
+
+      if (activeIndex >= 0) {
+        // 更新现有组件
+        this.components[activeIndex] = {
+          ...this.components[activeIndex],
+          data: data,
+          isFinished: data.content?.is_finished || false
+        };
+      } else {
+        // 创建新组件
+        this.components.push({
+          id: `${data.msg_id}_${Date.now()}`,
+          type: componentType,
+          data: data,
+          isFinished: data.content?.is_finished || false
+        });
+      }
     }
 
     this.notifyListeners();
