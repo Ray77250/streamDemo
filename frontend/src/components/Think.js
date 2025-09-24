@@ -133,7 +133,7 @@ const Think = ({ data, isFinished, onComplete }) => {
 const MemoizedThink = memo(Think, (prevProps, nextProps) => {
   // 如果组件已完成，则不需要重新渲染
   if (prevProps.isFinished && nextProps.isFinished) {
-    return true; // 返回true表示props相同，不需要重新渲染
+    return true; 
   }
   
   // 如果msg_id相同且都是完成状态，不需要重新渲染

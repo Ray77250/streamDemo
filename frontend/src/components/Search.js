@@ -9,7 +9,7 @@ const Search = ({ data, isFinished }) => {
 
   useEffect(() => {
     if (content) {
-      // 检查是否是新的内容（不是重复的）
+      // 检查是否是新的内容
       if (content !== processedContentRef.current) {
         processedContentRef.current = content;
         typeText(content);
@@ -19,9 +19,8 @@ const Search = ({ data, isFinished }) => {
 
   const typeText = (text) => {
     setIsTyping(true);
-    setDisplayText(prev => prev + text); // 追加文本而不是替换
+    setDisplayText(prev => prev + text); 
     
-    // 立即完成，无延迟
     setIsTyping(false);
   };
   
