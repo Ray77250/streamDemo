@@ -2,24 +2,23 @@
 
 ```
 streaming/
-├── backend/                 # 后端SSE服务器
-│   ├── server.js           # 主服务器文件
-│   ├── data.json           # 数据存储文件
-│   ├── package.json        # 依赖管理
-│   └── README.md           # 后端说明文档
-└── frontend/               # React前端应用
-    ├── src/                # 源代码目录
-    │   ├── App.js          # 主应用组件（简化后）
-    │   ├── components/     # React组件
-    │   │   ├── Step.js     # 步骤组件
-    │   │   ├── Think.js    # 思考组件
-    │   │   ├── Text.js     # 文本组件
-    │   │   └── Search.js   # 搜索组件
-    │   └── services/       # 服务层
-    │       ├── sseService.js      # SSE连接服务
-    │       └── componentManager.js # 组件管理器
-    ├── package.json        # 前端依赖
-    └── public/             # 静态资源
+├── backend/                 # 后端服务
+│   ├── server.js           # Express服务器 + SSE
+│   ├── data.json           # 流式数据源
+│   └── package.json        # Node.js依赖
+└── frontend/               # React前端
+    ├── src/
+    │   ├── App.js          # 主应用
+    │   ├── components/     # UI组件
+    │   │   ├── Step.js     # 步骤展示
+    │   │   ├── Think.js    # 思考过程
+    │   │   ├── Text.js     # 文本内容
+    │   │   ├── Search.js   # 搜索功能
+    │   │   └── Reply.js    # 回复组件
+    │   └── services/       # 业务逻辑
+    │       ├── sseService.js      # SSE连接
+    │       └── componentManager.js # 组件管理
+    └── package.json        # React依赖
 ```
 
 ## 快速开始

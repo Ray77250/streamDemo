@@ -1,57 +1,50 @@
-## 安装和运行
+# 前端应用
 
-### 1. 安装依赖
+React流式数据展示界面，通过SSE接收后端推送的实时数据。
+
+## 快速开始
+
 ```bash
-cd frontend
+# 安装依赖
 npm install
-```
 
-### 2. 启动开发服务器
-```bash
+# 启动开发服务器
 npm start
 ```
 
 应用将在 http://localhost:3000 启动
 
-### 3. 确保后端服务运行
-确保后端SSE服务在 http://localhost:3001 运行
-
 ## 技术栈
 
-- **React 18**: 前端框架
-- **CSS3**: 样式和动画
-- **EventSource API**: SSE连接
-- **Fetch API**: HTTP请求
+- **React 18** - 前端框架
+- **CSS3** - 样式和动画
+- **EventSource API** - SSE连接
+- **Fetch API** - HTTP请求
 
 ## 项目结构
 
 ```
 src/
-├── components/              # React组件
-│   ├── Step.js             # 步骤组件
-│   ├── Step.css            # 步骤组件样式
-│   ├── Think.js            # 思考组件
-│   ├── Think.css           # 思考组件样式
-│   ├── Text.js             # 文本组件
-│   ├── Text.css            # 文本组件样式
-│   ├── Search.js           # 搜索组件
-│   └── Search.css          # 搜索组件样式
-├── services/               # 服务层
-│   ├── sseService.js       # SSE连接服务
-│   └── componentManager.js # 组件管理器
-├── App.js                  # 主应用组件（简化后）
-├── App.css                 # 主应用样式
-├── index.js                # 入口文件
-└── index.css               # 全局样式
+├── components/              # UI组件
+│   ├── Step.js             # 步骤展示
+│   ├── Think.js            # 思考过程
+│   ├── Text.js             # 文本内容
+│   ├── Search.js           # 搜索功能
+│   └── Reply.js            # 回复组件
+├── services/               # 业务逻辑
+│   ├── sseService.js       # SSE连接管理
+│   └── componentManager.js # 组件状态管理
+└── App.js                  # 主应用
 ```
+
 ## 数据格式
 
-应用接收的数据格式如下：
+接收的SSE数据格式：
 
 ```json
 {
   "msg_id": "消息ID",
-  "type": "step|think|text",
+  "type": "step|think|text|search",
   "content": {
     "content": "内容文本",
     "title": "标题",
@@ -61,10 +54,9 @@ src/
 }
 ```
 
-## 自定义配置
+## 配置
 
-### 修改SSE端点
-在 `src/services/sseService.js` 中修改：
+修改SSE端点：`src/services/sseService.js`
 ```javascript
 this.eventSource = new EventSource('http://localhost:3001/events');
 ```
